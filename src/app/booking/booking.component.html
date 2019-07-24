@@ -1,0 +1,58 @@
+<div class="well">
+<div *ngIf='s!=null ;' >
+<h1>{{s}} </h1>
+<h4>Available seats:<span class="label label-primary">{{seats}} </span></h4>
+
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" formControlName="bname" class="form-control" id="name">
+      <span 
+      *ngIf="!bookForm.get('bname').valid && bookForm.get('bname').touched"
+      class="help-block ">
+    Please enter valid name
+    </span>
+      </div>
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email" formControlName="bemail" class="form-control" id="email">
+    <span 
+      *ngIf="bookForm.get('bemail').touched && !bookForm.get('bemail').valid   "
+      class="help-block ">
+    Please enter valid email
+    </span>
+    
+   
+  </div>
+  <div class="form-group">
+      <label for="number">Phone No.</label>
+      <input type="number" formControlName="bnumber" class="form-control" id="number">
+    </div>
+    <span 
+      *ngIf="bookForm.get('bnumber').touched && !bookForm.get('bnumber').valid   "
+      class="help-block ">
+    Please enter 10 digit phone number
+    </span>
+    <div class="form-group">
+        <label for="seats">Number of seats</label>
+        <input type="number" formControlName="bseats" class="form-control" id="seats">
+        <span 
+      *ngIf="bookForm.get('bseats').touched && !bookForm.get('bseats').valid   "
+      class="help-block ">
+    Please enter valid seats between 1 to {{seats}}
+    </span>
+      </div>
+      <div formArrayName="names">
+        <div class="form-group"
+        *ngFor="let i of bookForm.get('names').control; let i =index">
+<input type="text" class="form-control" [formControlName]="i">
+        </div>
+
+      </div> 
+      
+  
+  
+  <button type="submit" class="btn btn-secondary">Submit</button>
+</form>
+
+</div>

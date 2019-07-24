@@ -1,0 +1,10 @@
+[{
+"name":"dance","img":"../../assets/img/dance.jpeg","date":"12/12/12","seats":"12"},
+{"name":"singing","img":"../../assets/img/singing.jpg","date":"12/12/12","seats":"23"},
+{"name":"nukadnatak","img":"../../assets/img/natak.png","date":"12/12/12","seats":"34"},
+{"name":"dance2","img":"../../assets/img/dance.jpeg","date":"12/12/12","seats":"45"},
+{"name":"singing2","img":"../../assets/img/singing.jpg","date":"12/12/12","seats":"56"},
+{"name":"nukadnatak2","img":"../../assets/img/natak.png","date":"12/12/12","seats":"67"},
+{"name":"dance3","img":"../../assets/img/dance.jpeg","date":"12/12/12","seats":"78"},
+{"name":"singing3","img":"../../assets/img/singing.jpg","date":"12/12/12","seats":"89"},
+{"name":"nukadnatak3","img":"../../assets/img/natak.png","date":"12/12/12","seats":"0"}]

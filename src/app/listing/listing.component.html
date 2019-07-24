@@ -1,0 +1,32 @@
+<br>
+
+    <input class="form-control mr-sm-2" type="text" [(ngModel)]="status" placeholder="Search for events">
+ 
+
+  <br>
+<div class='table-responsive'>
+  <table class="table table-bordered table-hover table-responsive " >
+      <thead>
+          <tr>
+            <th>Name of the event</th>
+            <th>Date</th>
+            <th >Image</th>
+            <th >Available Seats</th>
+            <th >Booking</th>
+         
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of datas | filter:status:'name' ">
+            <td>{{i.name}}</td>
+            <td>{{i.date}}</td>
+            <td> <img src={{i.img}} alt=""> </td>
+            <td >{{i.seats}}</td>
+            <td>
+              <p *ngIf="i.seats==0" >No seats Available</p>
+              <button *ngIf="i.seats!=0" class="btn btn-primary" (click)="bookticket(i.name)">book tickets</button></td>
+          </tr>
+          <div *ngIf='tr?.length === 0'>No Results</div>
+  </table>
+</div>
+
