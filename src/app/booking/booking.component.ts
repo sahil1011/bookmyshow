@@ -1,4 +1,5 @@
 
+
 import { DatabaseService } from './../database.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,11 +13,11 @@ import { FormGroup, FormControl, Validators, FormArray, } from '@angular/forms';
 })
 export class BookingComponent implements OnInit {
   s: string;
-  t: [];
+  t: any[]=[];
   seats: number;
   m: number;
   bookForm: FormGroup;
-  elementd;
+
 
   constructor(private r: ActivatedRoute, private router: Router, private service: DatabaseService) { }
 
@@ -35,7 +36,7 @@ export class BookingComponent implements OnInit {
       'bseats': new FormControl(0,
         [Validators.required, Validators.max(this.seats), Validators.min(1)]),
         'names': new FormArray([])
-    });
+    });  
   }
   onSubmit() {
     if (this.seats >= this.bookForm.value.bseats) {
@@ -60,11 +61,12 @@ onAdd() {
   getSeats(r) {
     this.service.getData().subscribe(res => {
       this.t = res;
-      this.t.forEach(element => {
-        if (element.name == r) {
-          this.seats = element.seats;
-        }
-      });
+
+      for (const iterator of this.t) {
+          if (iterator.name == r) {
+            this.seats = iterator.seats;
+          }
+      }
 
     });
   }
